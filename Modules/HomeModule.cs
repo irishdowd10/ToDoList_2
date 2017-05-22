@@ -9,8 +9,11 @@ namespace ToDoList
     public HomeModule()
     {
       Get["/"] = _ => View["todo_form.cshtml"];
-      Get["/todo_confirmation"] = _ => View["todo_confirmation.cshtml"];
-      Get["/todo_all_tasks"] = _ => View["todo_all_tasks.cshtml"];
+      Get["/todo_confirmation"] = _ => {
+        Task newTask = new Task(Request.Query["new-task"]);
+        return View["todo_confirmation.cshtml", newTask];
+      };
+      // Get["/todo_all_tasks"] = _ => View["todo_all_tasks.cshtml"];
     }
   }
 }
