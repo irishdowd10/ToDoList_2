@@ -2,12 +2,10 @@
   Layout="Shared/_Layout";
 }
 
-<div class="container">
-  <h1>To Do List</h1>
-  <p>Congrats, motherfucker. Your item was added to your list.</p>
-  <ul>
-    <li>@Model.GetDescription()</li>
-  </ul>
+<div class="container text-center">
+  <h1>&#128293 To Do List &#128169</h1>
+  <p>Congrats comrade, your item was added to your list.</p>
+  <p class="todolist">@Model.GetDescription()</p>
   <p><a href="/">Add another task</a></p>
   <p><a href="/todo_all_tasks">View all tasks</a></p>
 </div>
