@@ -19,13 +19,17 @@ namespace ToDo.Objects
     {
       _description = newDescription;
     }
-    public List<string> GetInstances()
+    public static List<string> GetInstances()
     {
       return _instances;
     }
-    public void SaveInstance()
+    public void Save()
     {
       _instances.Add(_description);
+    }
+    public static void ClearAll()
+    {
+      _instances.Clear();
     }
   }
 }

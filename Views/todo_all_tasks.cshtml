@@ -3,15 +3,15 @@
 }
 
 <div class="container">
-  <p>Your ToDo List!</p>
+  <p>Your To Do List!</p>
   <ul>
     @foreach(var task in Model)
     {
-      <li>@Model.task</li>
+      <li>@task</li>
     }
   </ul>
   <p><a href="/">Add another task</a></p>
-  <form action="/todo_form">
+  <form action="/tasks_cleared" method="post">
     <button type="submit" class="btn btn-info">Clear all tasks</button>
   </form>
 </div>
