@@ -8,19 +8,31 @@ namespace ToDoList
   {
     public HomeModule()
     {
-      Get["/"] = _ => View["todo_form.cshtml"];
-      Get["/todo_all_tasks"] = _ => {
-        List<string> allTasks = Task.GetInstances();
-        return View["todo_all_tasks.cshtml", allTasks];
+      Get["/"] = _ => {
+        return View["index.cshtml"];
       };
-      Post["/todo_confirmation"] = _ => {
+      Get["/tasks"] = _ => {
+        List<Task> allTasks = Task.GetAll();
+        return View["tasks.cshtml", allTasks];
+      };
+      Get["/tasks/new"] = _ => {
+        return View["task_form.cshtml"];
+      };
+      Post["/tasks/confirm"] = _ => {
         Task newTask = new Task(Request.Form["new-task"]);
-        newTask.Save();
-        return View["todo_confirmation.cshtml", newTask];
+        return View["task_confirmation", newTask];
       };
-      Post["/tasks_cleared"] = _ => {
+      Get["/tasks"] = _ => {
+        List<Task> allTasks = Task.GetAll();
+        return View["tasks.cshtml", allTasks];
+      };
+      Get["/tasks/{id}"] = parameters => {
+        Task task = Task.Find(parameters.id);
+        return View["task.cshtml", task];
+      };
+      Post["/tasks/cleared"] = _ => {
         Task.ClearAll();
-        return View["todo_form.cshtml"];
+        return View["task_form.cshtml"];
       };
     }
   }
