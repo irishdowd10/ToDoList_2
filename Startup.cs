@@ -5,7 +5,7 @@ using Nancy;
 using Nancy.ViewEngines.Razor;
 using System.Collections.Generic;
 
-namespace Shipping
+namespace ToDoList
 {
   public class Startup
   {
@@ -34,6 +34,6 @@ namespace Shipping
     public bool AutoIncludeModelNamespace
     {
       get {return false;}
-    }  
+    }
   }
 }

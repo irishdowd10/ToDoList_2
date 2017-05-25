@@ -14,7 +14,7 @@ namespace ToDo.Objects
       _name = categoryName;
       _instances.Add(this);
       _id = _instances.Count;
-      _tasks = new List<Tasks>{};
+      _tasks = new List<Task>{};
     }
 
     public string GetName()
@@ -35,7 +35,15 @@ namespace ToDo.Objects
     }
     public static Category Find(int searchId)
     {
-      return _instances[searchId - 1];
+      return _instances[searchId-1];
+    }
+    public List<Task> GetTasks()
+    {
+      return _tasks;
+    }
+    public void AddTask(Task task)
+    {
+      _tasks.Add(task);
     }
   }
 }
